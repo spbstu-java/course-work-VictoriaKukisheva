@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="lab4.SceneController" spacing="10" style="-fx-padding: 10;">
+
+    <Label text="Лабораторные работы 1-4" style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+
+    <HBox spacing="10">
+        <Label text="Выберите лабораторную работу:"/>
+        <ComboBox fx:id="labComboBox" prefWidth="200"/>
+    </HBox>
+
+    <StackPane>
+        <!-- Lab 1 Content -->
+        <VBox fx:id="lab1Content" spacing="10" visible="false">
+            <Label text="Лабораторная работа 1: Стратегия перемещения героя"/>
+            <HBox spacing="10">
+                <Button text="Ходить" onAction="#onWalkButtonClick"/>
+                <Button text="Ехать" onAction="#onRideButtonClick"/>
+                <Button text="Летать" onAction="#onFlyButtonClick"/>
+                <Button text="Завершить день" onAction="#onEndDayButtonClick"/>
+            </HBox>
+            <Label text="Вывод:"/>
+            <TextArea fx:id="lab1Output" editable="false" prefHeight="200" prefWidth="600"/>
+        </VBox>
+
+        <!-- Lab 2 Content -->
+        <VBox fx:id="lab2Content" spacing="10" visible="false">
+            <Label text="Лабораторная работа 2: Аннотации и рефлексия"/>
+            <Button text="Выполнить аннотированные методы" onAction="#onLab2Execute"/>
+            <Label text="Вывод:"/>
+            <TextArea fx:id="lab2Output" editable="false" prefHeight="200" prefWidth="600"/>
+        </VBox>
+
+        <!-- Lab 3 Content -->
+        <VBox fx:id="lab3Content" spacing="10" visible="false">
+            <Label text="Лабораторная работа 3: Переводчик"/>
+            <HBox spacing="10">
+                <VBox spacing="5">
+                    <Label text="Файл словаря:"/>
+                    <HBox spacing="5">
+                        <TextField fx:id="dictionaryPath" text="src/lab3/dictionary.txt" prefWidth="300"/>
+                        <Button text="Обзор..." onAction="#onBrowseDictionary"/>
+                    </HBox>
+                </VBox>
+            </HBox>
+            <HBox spacing="10">
+                <VBox spacing="5" prefWidth="400">
+                    <Label text="Введите текст для перевода:"/>
+                    <TextArea fx:id="inputText" prefHeight="100" prefWidth="400"/>
+                </VBox>
+            </HBox>
+            <Button text="Перевести" onAction="#onTranslateButtonClick"/>
+            <Label text="Результат перевода:"/>
+            <TextArea fx:id="translationOutput" editable="false" prefHeight="150" prefWidth="600"/>
+        </VBox>
+
+        <!-- Lab 4 Content -->
+        <VBox fx:id="lab4Content" spacing="10" visible="false">
+            <Label text="Лабораторная работа 4: Stream API"/>
+
+            <TabPane prefHeight="400">
+                <Tab text="Среднее значение">
+                    <VBox spacing="10" style="-fx-padding: 10;">
+                        <Label text="Введите целые числа через запятую:"/>
+                        <TextField fx:id="avgNumbersInput" text="10, 40, 3, 96, 1" prefWidth="400"
+                                   promptText="Введите числа через запятую или пробел"/>
+                        <Button text="Вычислить среднее" onAction="#onCalculateAverage"/>
+                        <TextArea fx:id="avgOutput" editable="false" prefHeight="100"/>
+                    </VBox>
+                </Tab>
+
+                <Tab text="Преобразование строк">
+                    <VBox spacing="10" style="-fx-padding: 10;">
+                        <Label text="Введите строки через запятую:"/>
+                        <TextField fx:id="stringsInput" text="cat, dog" prefWidth="400"
+                                   promptText="Введите строки через запятую"/>
+                        <Button text="Преобразовать" onAction="#onTransformStrings"/>
+                        <TextArea fx:id="stringsOutput" editable="false" prefHeight="100"/>
+                    </VBox>
+                </Tab>
+
+                <Tab text="Квадраты уникальных">
+                    <VBox spacing="10" style="-fx-padding: 10;">
+                        <Label text="Введите целые числа через запятую:"/>
+                        <TextField fx:id="uniqueNumbersInput" text="10, 40, 3, 96, 96, 1" prefWidth="400"
+                                   promptText="Введите числа через запятую или пробел"/>
+                        <Button text="Вычислить квадраты" onAction="#onPowNumbers"/>
+                        <TextArea fx:id="uniqueOutput" editable="false" prefHeight="100"/>
+                    </VBox>
+                </Tab>
+
+                <Tab text="Последний элемент">
+                    <VBox spacing="10" style="-fx-padding: 10;">
+                        <Label text="Введите элементы через запятую:"/>
+                        <TextField fx:id="lastElementInput" text="10, 40, 3, 96, 1" prefWidth="400"
+                                   promptText="Введите элементы через запятую"/>
+                        <Button text="Найти последний элемент" onAction="#onGetLastElement"/>
+                        <TextArea fx:id="lastElementOutput" editable="false" prefHeight="100"/>
+                    </VBox>
+                </Tab>
+
+                <Tab text="Сумма четных">
+                    <VBox spacing="10" style="-fx-padding: 10;">
+                        <Label text="Введите целые числа через запятую:"/>
+                        <TextField fx:id="evenNumbersInput" text="10, 40, 3, 96, 1" prefWidth="400"
+                                   promptText="Введите числа через запятую или пробел"/>
+                        <Button text="Вычислить сумму четных" onAction="#onSumEven"/>
+                        <TextArea fx:id="evenOutput" editable="false" prefHeight="100"/>
+                    </VBox>
+                </Tab>
+
+                <Tab text="Строки в Map">
+                    <VBox spacing="10" style="-fx-padding: 10;">
+                        <Label text="Введите строки через запятую:"/>
+                        <TextField fx:id="mapStringsInput" text="cat, dog" prefWidth="400"
+                                   promptText="Введите строки через запятую"/>
+                        <Button text="Преобразовать в Map" onAction="#onStringsToMap"/>
+                        <TextArea fx:id="mapOutput" editable="false" prefHeight="100"/>
+                    </VBox>
+                </Tab>
+            </TabPane>
+        </VBox>
+    </StackPane>
+</VBox>
